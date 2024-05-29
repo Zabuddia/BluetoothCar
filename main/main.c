@@ -10,7 +10,6 @@
 #include "driver/uart.h"
 
 #include "btn.h"
-#include "lcd.h"
 #include "joy.h"
 #include "pin.h"
 #include "controller.h"
@@ -20,7 +19,6 @@
 
 static const char* TAG = "main";
 
-TFT_t dev;
 gptimer_handle_t gptimer;
 bool interrupt_flag;
 
@@ -77,7 +75,6 @@ void app_main() {
     configure_and_start_gptimer();
 
     controller_init();
-
 
     while (1) {
         while (!interrupt_flag) ;
